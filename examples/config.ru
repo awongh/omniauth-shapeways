@@ -18,13 +18,6 @@ class App < Sinatra::Base
   get '/auth/:provider/callback' do
     auth = request.env['omniauth.auth']
     
-    client = Reshape::Client.new({
-      consumer_token: ENV['SHAPEWAYS_CONSUMER_KEY'], 
-      consumer_secret: ENV['SHAPEWAYS_CONSUMER_SECRET'], 
-      oauth_token: auth.credentials.token, 
-      oauth_secret: auth.credentials.secret
-    })
-    
     erb "<h1>#{params[:provider]}</h1>
          <pre>#{JSON.pretty_generate(auth)}</pre>"
   end
