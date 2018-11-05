@@ -17,25 +17,12 @@ describe OmniAuth::Strategies::Shapeways do
       subject.options.client_options.site.should eq('http://api.shapeways.com')
     end
 
-    it 'has correct authorize url' do
-      subject.options.client_options.authorize_url.should eq('http://api.shapeways.com/login')
-    end
-
     it 'has correct request token url' do
-      subject.options.client_options.request_token_url.should eq('http://api.shapeways.com/oauth1/request_token/v1')
+      subject.options.client_options.request_token_url.should eq('https://api.shapeways.com/oauth2/token')
     end
 
-    it 'has correct access token url' do
-      subject.options.client_options.access_token_url.should eq('http://api.shapeways.com/oauth1/access_token/v1')
-    end
   end
-  
-  describe '#request_phase' do
-    it 'should redirect to an authorization page on Shapeways' do
-      pending 'I have no idea how to implement this test properly'
-    end
-  end
-  
+
   describe '#info' do
     before :each do
       @raw_info ||= { 'info' => { 'result' => 'success', 'name' => 'nil'} }
