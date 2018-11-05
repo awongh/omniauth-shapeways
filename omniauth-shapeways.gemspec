@@ -17,11 +17,11 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
   
-  gem.add_dependency 'omniauth'
-  gem.add_dependency 'omniauth-oauth'
+  gem.add_dependency 'omniauth-oauth2', '~> 1.5.0'
   gem.add_dependency 'multi_json'
   gem.add_dependency 'json'
   
+  gem.add_development_dependency 'byebug'
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'simplecov'
